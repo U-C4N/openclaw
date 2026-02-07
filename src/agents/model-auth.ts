@@ -189,7 +189,7 @@ export async function resolveApiKeyForProvider(params: {
         };
       }
     } catch (err) {
-      getLogger().debug(`auth profile resolution failed for ${candidate}: ${err}`);
+      getLogger().debug(`auth profile resolution failed for ${candidate}: ${String(err)}`);
     }
   }
 

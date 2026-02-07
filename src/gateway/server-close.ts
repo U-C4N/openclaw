@@ -67,7 +67,7 @@ export function createGatewayCloseHandler(params: {
     }
     if (params.pluginServices) {
       await params.pluginServices.stop().catch((err) => {
-        getLogger().debug(`pluginServices.stop failed during shutdown: ${err}`);
+        getLogger().debug(`pluginServices.stop failed during shutdown: ${String(err)}`);
       });
     }
     await stopGmailWatcher();
@@ -108,11 +108,11 @@ export function createGatewayCloseHandler(params: {
     }
     params.clients.clear();
     await params.configReloader.stop().catch((err) => {
-      getLogger().debug(`configReloader.stop failed during shutdown: ${err}`);
+      getLogger().debug(`configReloader.stop failed during shutdown: ${String(err)}`);
     });
     if (params.browserControl) {
       await params.browserControl.stop().catch((err) => {
-        getLogger().debug(`browserControl.stop failed during shutdown: ${err}`);
+        getLogger().debug(`browserControl.stop failed during shutdown: ${String(err)}`);
       });
     }
     await new Promise<void>((resolve) => params.wss.close(() => resolve()));

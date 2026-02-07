@@ -121,6 +121,6 @@ export function scheduleGatewayUpdateCheck(params: {
   isNixMode: boolean;
 }): void {
   void runGatewayUpdateCheck(params).catch((err) => {
-    getLogger().debug(`gateway update check failed: ${err}`);
+    getLogger().debug(`gateway update check failed: ${String(err)}`);
   });
 }
